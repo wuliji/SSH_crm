@@ -15,5 +15,11 @@ public interface CustomerService {
 	 * @return
 	 */
 	PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize);
+	
+	/**
+	 * ±£´æ¿Í»§
+	 * @param customer
+	 */
+	void save(Customer customer);
 
 }

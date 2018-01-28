@@ -9,14 +9,24 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
-
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/mySelect.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		loadSelect("006","level","cust_level.dict_id");
+		loadSelect("001","industry","cust_industry.dict_id");
+		loadSelect("002","source","cust_source.dict_id");
+	});
+	
+</script>
 
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
+<!-- 文件上传页面3个要求：表单必须post提交，提交类型为enctype，文件上传使用<input type="file"/> -->
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/CustomerAction_add"
-		method=post>
+		method=post enctype="multipart/form-data">
 		
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
@@ -56,23 +66,17 @@
 														style="WIDTH: 180px" maxLength=50 name="cust_name">
 								</td>
 								<td>客户级别 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_level">
+								<td id="level">
 								</td>
 							</TR>
 							
 							<TR>
 								
 								<td>信息来源 ：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_source">
+								<td id="source">
 								</td>
-								<td>联系人：</td>
-								<td>
-								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_linkman">
+								<td>客户行业：</td>
+								<td id="industry">
 								</td>
 							</TR>
 							
@@ -88,6 +92,13 @@
 								<td>
 								<INPUT class=textbox id=sChannel2
 														style="WIDTH: 180px" maxLength=50 name="cust_mobile">
+								</td>
+							</TR>
+							
+							<TR>
+								<td>图片上传：</td>
+								<td>
+									<input type="file" name="photo">
 								</td>
 							</TR>
 							

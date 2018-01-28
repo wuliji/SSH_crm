@@ -37,6 +37,7 @@
 			<tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
 			<tx:method name="delete*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
 			<tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true"/>
+			<tx:method name="*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false"/>
 		</tx:attributes>
 	</tx:advice>
 	
@@ -84,6 +85,9 @@
 	<bean name="customerAction" class="com.wuliji.web.action.CustomerAction" scope="prototype">
 		<property name="cs" ref="customerService"></property>
 	</bean>
+	<bean name="baseDictAction" class="com.wuliji.web.action.BaseDictAction" scope="prototype">
+		<property name="bds" ref="baseDictService"></property>
+	</bean>
 	
 	<!-- service配置 -->
 	<bean name="userService" class="com.wuliji.service.impl.UserServiceImpl">
@@ -91,6 +95,9 @@
 	</bean>
 	<bean name="customerService" class="com.wuliji.service.impl.CustomerServiceImpl">
 		<property name="cd" ref="customerDao"></property>
+	</bean>
+	<bean name="baseDictService" class="com.wuliji.service.impl.BaseDictServiceImpl">
+		<property name="bdd" ref="baseDictDao"></property>
 	</bean>
 	
 	
@@ -100,6 +107,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="customerDao" class="com.wuliji.dao.impl.CustomerDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="baseDictDao" class="com.wuliji.dao.impl.BaseDictDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>

@@ -30,4 +30,11 @@ public class CustomerServiceImpl implements CustomerService{
 		return pb;
 	}
 
+	@Override
+	public void save(Customer customer) {
+		//1.维护Customer与数据字典的关系，struts2的参数封装，会自动将参数封装到数据字典的id值
+		//2.调用Dao保存客户
+		cd.save(customer);
+	}
+
 }

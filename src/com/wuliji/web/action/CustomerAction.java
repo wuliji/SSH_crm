@@ -1,5 +1,7 @@
 package com.wuliji.web.action;
 
+import java.io.File;
+
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
@@ -12,6 +14,19 @@ import com.wuliji.service.CustomerService;
 import com.wuliji.utils.PageBean;
 
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
+
+	private File photo;//上传的文件会自动封装到File对象中，该属性名与前台页面属性名相同
+	private String photoFileName;//提交的键名后加上固定FileName，文件名称会自动封装到属性中
+	private String photoContentType;//提交的键名后加上固定ContentType，文件类型会自动封装到属性中
+	public String getPhotoFileName() {
+		return photoFileName;
+	}
+
+	public void setPhotoFileName(String photoFileName) {
+		this.photoFileName = photoFileName;
+	}
+
+
 
 	private Customer customer = new Customer();
 	private CustomerService cs;
@@ -33,6 +48,18 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return "list";
 	}
 	
+	public String add() throws Exception {
+		//上传文件保存到指定位置
+		System.out.println("文件名称:" + photoFileName);
+		System.out.println("文件类型:" + photoContentType);
+		photo.renameTo(new File("E:\\upload\\haha.jpg"));
+		
+		//1.调用Service保存Customer对象
+		cs.save(customer);
+		//2.重定向到客户列表
+		return "toList";
+	}
+	
 	
 	public Integer getCurrentPage() {
 		return currentPage;
@@ -43,6 +70,14 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		this.currentPage = currentPage;
 	}
 
+
+	public File getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(File photo) {
+		this.photo = photo;
+	}
 
 	public Integer getPageSize() {
 		return pageSize;
