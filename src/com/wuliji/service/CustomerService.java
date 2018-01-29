@@ -21,5 +21,12 @@ public interface CustomerService {
 	 * @param customer
 	 */
 	void save(Customer customer);
+	
+	/**
+	 * 根据id获得客户对象
+	 * @param cust_id
+	 * @return
+	 */
+	Customer findById(Long cust_id);
 
 }

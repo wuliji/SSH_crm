@@ -32,6 +32,7 @@
 				<param name="namespace">/</param>
 				<param name="actionName">CustomerAction_list</param>
 			</result>
+			<result name="edit">/jsp/customer/add.jsp</result>
 		</action>
 		<!-- 数据字典Action -->
 		<action name="BaseDictAction" class="baseDictAction" method="execute"></action>

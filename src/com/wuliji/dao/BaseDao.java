@@ -32,6 +32,12 @@ public interface BaseDao<T> {
 	void update(T t);
 	
 	/**
+	 * 增加或修改
+	 * @param t
+	 */
+	void saveOrUpdate(T t);
+	
+	/**
 	 * 根据id查对象
 	 * @param id
 	 * @return
