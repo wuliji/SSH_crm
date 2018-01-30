@@ -30,6 +30,12 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public void saveUser(User u) {
+		//1.调用dao 根据注册登录名获得用户对象查重
+		User existU = dao.getByUserCode(u.getUser_code());
+		if(existU != null) {
+			throw new RuntimeException("用户名已经存在");
+		}
+		//执行保存
 		dao.save(u);
 	}
 

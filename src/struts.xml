@@ -9,6 +9,26 @@
 	<constant name="struts.objectFactory" value="spring"></constant>
 
 	<package name="crm" namespace="/" extends="struts-default">
+	
+	<interceptors>
+	<!-- 注册拦截器 -->
+		<interceptor name="priviligeInterceptor" class="com.wuliji.web.interceptor.PriviligeInterceptor"></interceptor>
+	<!-- 配置拦截器栈 -->
+		<interceptor-stack name="myStack">
+			<interceptor-ref name="priviligeInterceptor">
+				<param name="excludeMethods">login,regist</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	<!-- 指定默认拦截器 -->
+	<default-interceptor-ref name="myStack"></default-interceptor-ref>
+	
+	<!-- 全局结果集配置 -->
+	<global-results>
+		<result name="toLogin" type="redirect">/login.jsp</result>
+	</global-results>
+	
 	<!-- 异常处理配置 -->
 	<global-exception-mappings>
 		<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
@@ -24,6 +44,7 @@
 		<action name="UserAction_*" class="userAction" method="{1}">
 			<result name="toHome" type="redirect">/index.htm</result>
 			<result name="error">/login.jsp</result>
+			<result name="regist">/regist.jsp</result>
 		</action>
 		
 		<action name="CustomerAction_*" class="customerAction" method="{1}">

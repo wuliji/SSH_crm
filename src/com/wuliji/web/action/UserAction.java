@@ -24,6 +24,19 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		//3.重定向到首页
 		return "toHome";
 	}
+	
+	public String regist() throws Exception {
+		try {
+			//1.调用Service执行
+			userService.saveUser(user);
+		} catch (Exception e) {
+			e.printStackTrace();
+			ActionContext.getContext().put("error", e.getMessage());
+			return "regist";
+		}
+		//3.重定向到首页
+		return "toLogin";
+	}
 
 	@Override
 	public User getModel() {
