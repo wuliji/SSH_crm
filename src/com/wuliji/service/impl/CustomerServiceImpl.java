@@ -17,7 +17,6 @@ public class CustomerServiceImpl implements CustomerService{
 		this.cd = cd;
 	}
 
-	@Override
 	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize) {
 		//1.调用dao查询总记录数
 		Integer totalCount = cd.findTotalCount(dc);
@@ -30,7 +29,6 @@ public class CustomerServiceImpl implements CustomerService{
 		return pb;
 	}
 
-	@Override
 	public void save(Customer customer) {
 		//1.维护Customer与数据字典的关系，struts2的参数封装，会自动将参数封装到数据字典的id值
 		//2.调用Dao保存客户

@@ -37,5 +37,15 @@
 		<!-- 数据字典Action -->
 		<action name="BaseDictAction" class="baseDictAction" method="execute"></action>
 		
+		<action name="LinkManAction_*" class="linkManAction" method="{1}">
+			<result name="list">/jsp/linkman/list.jsp</result>
+			<result name="add">/jsp/linkman/add.jsp</result>
+			<result name="error">/jsp/linkman/list.jsp</result>
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">LinkManAction_list</param>
+			</result>
+		</action>
+		
 	</package>
 </struts>

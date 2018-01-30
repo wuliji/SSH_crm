@@ -88,6 +88,9 @@
 	<bean name="baseDictAction" class="com.wuliji.web.action.BaseDictAction" scope="prototype">
 		<property name="bds" ref="baseDictService"></property>
 	</bean>
+	<bean name="linkManAction" class="com.wuliji.web.action.LinkManAction" scope="prototype">
+		<property name="ls" ref="linkManService"></property>
+	</bean>
 	
 	<!-- service配置 -->
 	<bean name="userService" class="com.wuliji.service.impl.UserServiceImpl">
@@ -98,6 +101,9 @@
 	</bean>
 	<bean name="baseDictService" class="com.wuliji.service.impl.BaseDictServiceImpl">
 		<property name="bdd" ref="baseDictDao"></property>
+	</bean>
+	<bean name="linkManService" class="com.wuliji.service.impl.LinkManServiceImpl">
+		<property name="lmd" ref="linkManDao"></property>
 	</bean>
 	
 	
@@ -110,6 +116,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="baseDictDao" class="com.wuliji.dao.impl.BaseDictDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="linkManDao" class="com.wuliji.dao.impl.LinkManDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>
