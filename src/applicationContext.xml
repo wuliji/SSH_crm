@@ -91,6 +91,9 @@
 	<bean name="linkManAction" class="com.wuliji.web.action.LinkManAction" scope="prototype">
 		<property name="ls" ref="linkManService"></property>
 	</bean>
+	<bean name="saleVisitAction" class="com.wuliji.web.action.SaleVisitAction" scope="prototype">
+		<property name="svs" ref="saleVisitService"></property>
+	</bean>
 	
 	<!-- service配置 -->
 	<bean name="userService" class="com.wuliji.service.impl.UserServiceImpl">
@@ -104,6 +107,9 @@
 	</bean>
 	<bean name="linkManService" class="com.wuliji.service.impl.LinkManServiceImpl">
 		<property name="lmd" ref="linkManDao"></property>
+	</bean>
+	<bean name="saleVisitService" class="com.wuliji.service.impl.SaleVisitServiceImpl">
+		<property name="svd" ref="saleVisitDao"></property>
 	</bean>
 	
 	
@@ -119,6 +125,9 @@
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 	<bean name="linkManDao" class="com.wuliji.dao.impl.LinkManDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="saleVisitDao" class="com.wuliji.dao.impl.SaleVisitDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>

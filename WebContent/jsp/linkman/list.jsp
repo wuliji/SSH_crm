@@ -82,15 +82,15 @@
 													
 													<TD>客户名称：</TD>
 													<TD>
-														<input type="hidden" name="customer.cust_id" id="cust_id" value="${param['customer.cust_id']}"/>
+														<input type="hidden" name="customer.cust_id" id="cust_id" value="<s:property value="#customer.cust_name" />"/>
 														<INPUT class=textbox 
-														style="WIDTH: 80px" maxLength=50 name="cust_name" id="customer.cust_name" value="${param['customer.cust_name']}">
+														style="WIDTH: 80px" maxLength=50 name="cust_name" id="cust_name" value="<s:property value="#customer.cust_name" />">
 														<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=500,height=300')"/>
 													</TD>
 													
 													<TD>
-													<INPUT class=button id=sButton2 type=submit
-														value=" 筛选 " name=sButton2>
+													<INPUT class=button id=sButton2 type="submit"
+														value="筛选 " name=sButton2>
 													</TD>
 												</TR>
 											</TBODY>

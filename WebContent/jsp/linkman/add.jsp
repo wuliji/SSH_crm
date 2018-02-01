@@ -50,7 +50,7 @@
 							<tr>
 								<td>所属客户：</td>
 								<td colspan="3"><input type="hidden" name="cust_id" id="cust_id" style="WIDTH: 180px" value="<s:property value="#linkMan.customer.cust_id"/>"/>
-								<input type="text" style="WIDTH: 180px" id="customer.cust_name" value="<s:property value="#linkMan.customer.cust_name"/>"/>
+								<input type="text" style="WIDTH: 180px" id="cust_name" value="<s:property value="#linkMan.customer.cust_name"/>"/>
 									<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=500,height=300')"/>
 								</td>
 							</tr>
