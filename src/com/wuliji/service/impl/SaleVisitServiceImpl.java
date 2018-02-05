@@ -35,4 +35,10 @@ public class SaleVisitServiceImpl implements SaleVisitService{
 		return pb;
 	}
 
+	@Override
+	public SaleVisit findById(String visit_id) {
+		SaleVisit saleVisit = svd.findById(visit_id);
+		return saleVisit;
+	}
+
 }

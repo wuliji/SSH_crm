@@ -21,4 +21,11 @@ public interface SaleVisitService {
 	 * @return
 	 */
 	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize);
+	
+	/**
+	 * 根据id查找对象
+	 * @param visit_id
+	 * @return
+	 */
+	SaleVisit findById(String visit_id);
 }

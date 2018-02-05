@@ -3,6 +3,7 @@ package com.wuliji.service.impl;
 import com.wuliji.dao.UserDao;
 import com.wuliji.domain.User;
 import com.wuliji.service.UserService;
+import com.wuliji.utils.MD5Utils;
 
 public class UserServiceImpl implements UserService{
 
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService{
 			throw new RuntimeException("用户名不存在");
 		}
 		//3.判断用户密码
-		if(!existU.getUser_password().equals(u.getUser_password())) {
+		if(!existU.getUser_password().equals(MD5Utils.md5(u.getUser_password()))) {
 			throw new RuntimeException("密码错误");
 		}
 		//4.返回查询到的用户对象
@@ -35,6 +36,8 @@ public class UserServiceImpl implements UserService{
 		if(existU != null) {
 			throw new RuntimeException("用户名已经存在");
 		}
+		//使用MD5工具对密码进行加密
+		u.setUser_password(MD5Utils.md5(u.getUser_password()));
 		//执行保存
 		dao.save(u);
 	}

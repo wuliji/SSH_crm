@@ -32,9 +32,11 @@
 <BODY>
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/SaleVisitAction_add"
-		method="post"  onsubmit="return checkForm(['user.user_id','visit_nexttime']);" >
+		method="post"  >
 		<!-- 隐藏域回显当前编辑的拜访记录id -->
-		<%-- <input  type="hidden"  name="visit_id" value="<s:property value="#saleVisit.visit_id" />"  /> --%>
+		<s:if test="#saleVisit.visit_id!=null">
+		<input  type="hidden"  name="visit_id" value="<s:property value="#saleVisit.visit_id" />" />
+		</s:if>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -138,5 +140,4 @@
 		</TABLE>
 	</FORM>
 </BODY>
-<s:debug></s:debug>
 </HTML>

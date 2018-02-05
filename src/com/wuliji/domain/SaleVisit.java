@@ -51,11 +51,11 @@ public class SaleVisit {
 	}
 	
 	public String getVisit_time_s() {
-		return transferDate(visit_time, "yyyy年MM月dd日");
+		return transferDate(visit_time, "yyyy-MM-dd");
 	}
 	
 	public String getVisit_nexttime_s() {
-		return transferDate(visit_nexttime, "yyyy年MM月dd日");
+		return transferDate(visit_nexttime, "yyyy-MM-dd");
 	}
 	
 	public static String transferDate(Date date, String format) {
