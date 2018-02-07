@@ -58,9 +58,11 @@ public class LinkMan {
 	public Character getLkm_gender() {
 		return lkm_gender;
 	}
+	
 	public void setLkm_gender(Character lkm_gender) {
 		this.lkm_gender = lkm_gender;
 	}
+	
 	public String getLkm_name() {
 		return lkm_name;
 	}

@@ -1,5 +1,7 @@
 package com.wuliji.service;
 
+import java.util.List;
+
 import org.hibernate.criterion.DetachedCriteria;
 
 import com.wuliji.domain.Customer;
@@ -28,5 +30,11 @@ public interface CustomerService {
 	 * @return
 	 */
 	Customer findById(Long cust_id);
+	
+	/**
+	 * 客户统计
+	 * @return
+	 */
+	List<Object[]> getIndustry();
 
 }

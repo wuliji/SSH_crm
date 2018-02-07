@@ -41,4 +41,9 @@ public class CustomerServiceImpl implements CustomerService{
 		return customer;
 	}
 
+	@Override
+	public List<Object[]> getIndustry() {
+		return cd.findIndustryCount();
+	}
+
 }

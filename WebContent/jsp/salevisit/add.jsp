@@ -10,7 +10,7 @@
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/mySelect.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/my.js"></script>
 <!-- 使用日期控件步骤1: 导入js和css -->
 		<script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/js/datepicker/jquery.datepick.css" type="text/css">
@@ -32,10 +32,10 @@
 <BODY>
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/SaleVisitAction_add"
-		method="post"  >
-		<!-- 隐藏域回显当前编辑的拜访记录id -->
+		method="post"  onsubmit="return checkForm(['user.user_id','visit_nexttime']);" >
 		<s:if test="#saleVisit.visit_id!=null">
-		<input  type="hidden"  name="visit_id" value="<s:property value="#saleVisit.visit_id" />" />
+		<!-- 隐藏域回显当前编辑的拜访记录id -->
+		<input  type="hidden"  name="visit_id" value="<s:property value="#saleVisit.visit_id" />"  />
 		</s:if>
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>

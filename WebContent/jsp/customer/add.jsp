@@ -6,33 +6,41 @@
 <html>
 <head>
 <TITLE>
-<s:property value="#customer==null?'添加':'修改'"/>客户
+<s:property value="#customer==null?'添加':'修改'" />客户
 </TITLE> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
 	rel=stylesheet>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath }/js/mySelect.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/js/my.js"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
+
+
+$(document).ready(function(){
 		
-		loadSelect("006","level","cust_level.dict_id" <s:if test="#customer.cust_level!=null">,<s:property value="#customer.cust_level.dict_id"/></s:if>);
-		loadSelect("001","industry","cust_industry.dict_id" <s:if test="#customer.cust_industry!=null">,<s:property value="#customer.cust_industry.dict_id"/></s:if>);
-		loadSelect("009","source","cust_source.dict_id" <s:if test="#customer.cust_source!=null">,<s:property value="#customer.cust_source.dict_id"/></s:if>);
-	});
+	loadSelect("006","level","cust_level.dict_id" <s:if test="#customer.cust_level!=null">,<s:property value="#customer.cust_level.dict_id" /></s:if>);
+	loadSelect("001","industry","cust_industry.dict_id" <s:if test="#customer.cust_industry!=null">,<s:property value="#customer.cust_industry.dict_id" /></s:if>);
+	loadSelect("009","source","cust_source.dict_id" <s:if test="#customer.cust_source!=null">,<s:property value="#customer.cust_source.dict_id" /></s:if>);
 	
+	
+	});
 </script>
 
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
 </HEAD>
 <BODY>
-<!-- 文件上传页面3个要求：表单必须post提交，提交类型为enctype，文件上传使用<input type="file"/> -->
+	
+	<!-- 文件上传页面3个要求:
+			1.表单必须post提交
+			2.表单提交类型enctype.必须多段式.
+			3.文件上传使用<input type="file" /> 组件
+	 -->
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/CustomerAction_add"
-		method=post enctype="multipart/form-data">
+		method="post" enctype="multipart/form-data" >
 		
-		<input type="hidden" name="cust_id" value="<s:property value="#customer.cust_id"/>"/>
+		<input type="hidden" name="cust_id" value="<s:property value="#customer.cust_id" />" />
 
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
@@ -54,7 +62,7 @@
 					<TD vAlign=top width="100%" bgColor=#ffffff>
 						<TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
 							<TR>
-								<TD class=manageHead>当前位置：客户管理 &gt; <s:property value="#customer==null?'添加':'修改'"/>客户</TD>
+								<TD class=manageHead>当前位置：客户管理 &gt; <s:property value="#customer==null?'添加':'修改'" />客户</TD>
 							</TR>
 							<TR>
 								<TD height=2></TD>
@@ -68,15 +76,14 @@
 								<td>客户名称：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_name" value="<s:property value="#customer.cust_name"/>">
+														style="WIDTH: 180px" maxLength=50 name="cust_name" value="<s:property value="#customer.cust_name" />">
 								</td>
 								<td>客户级别 ：</td>
-								<td id="level">
+								<td id="level" >
 								</td>
 							</TR>
 							
 							<TR>
-								
 								<td>信息来源 ：</td>
 								<td id="source">
 								</td>
@@ -86,27 +93,23 @@
 							</TR>
 							
 							<TR>
-								
-								
 								<td>固定电话 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_phone" value="<s:property value="#customer.cust_phone"/>">
+														style="WIDTH: 180px" maxLength=50 name="cust_phone" value="<s:property value="#customer.cust_phone" />">
 								</td>
 								<td>移动电话 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="cust_mobile" value="<s:property value="#customer.cust_mobile"/>">
+														style="WIDTH: 180px" maxLength=50 name="cust_mobile" value="<s:property value="#customer.cust_mobile" />">
 								</td>
 							</TR>
-							
 							<TR>
-								<td>图片上传：</td>
+								<td>图片上传 ：</td>
 								<td>
-									<input type="file" name="photo">
+									<input type="file" name="photo" />
 								</td>
 							</TR>
-							
 							<tr>
 								<td rowspan=2>
 								<INPUT class=button id=sButton2 type=submit

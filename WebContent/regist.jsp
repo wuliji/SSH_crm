@@ -45,7 +45,7 @@ style="LEFT: 0px; POSITION: absolute; TOP: 0px; BACKGROUND-COLOR: #0066ff"></DIV
     <TD style="HEIGHT: 105px"><IMG src="images/login_1.gif" 
   border=0></TD></TR>
   <TR>
-    <TD background=images/regist_title.png height=300>
+    <TD background="images/regist_title.png" height=300>
       <TABLE height=300 cellPadding=0 width=900 border=0>
         <TBODY>
         <TR>
@@ -88,4 +88,5 @@ border=0></TD></TR></TBODY></TABLE></DIV></DIV>
 
 
 </FORM>
+<s:debug></s:debug>
 </BODY></HTML>

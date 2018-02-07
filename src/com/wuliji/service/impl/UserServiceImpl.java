@@ -1,9 +1,15 @@
 package com.wuliji.service.impl;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+
 import com.wuliji.dao.UserDao;
+import com.wuliji.domain.Customer;
 import com.wuliji.domain.User;
 import com.wuliji.service.UserService;
 import com.wuliji.utils.MD5Utils;
+import com.wuliji.utils.PageBean;
 
 public class UserServiceImpl implements UserService{
 
@@ -41,5 +47,4 @@ public class UserServiceImpl implements UserService{
 		//Ö´ÐÐ±£´æ
 		dao.save(u);
 	}
-
 }

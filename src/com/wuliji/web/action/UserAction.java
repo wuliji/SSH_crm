@@ -1,10 +1,16 @@
 package com.wuliji.web.action;
 
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.wuliji.domain.Customer;
 import com.wuliji.domain.User;
 import com.wuliji.service.UserService;
+import com.wuliji.utils.PageBean;
 
 public class UserAction extends ActionSupport implements ModelDriven<User>{
 	
@@ -14,9 +20,8 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
-
+	
 	public String login() throws Exception {
-		
 		//1.调用Service执行
 		User u = userService.findUserByCodePassword(user);
 		//2.将返回的User对象放入session域中

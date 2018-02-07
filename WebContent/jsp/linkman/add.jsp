@@ -1,11 +1,11 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="/struts-tags" prefix="s"%>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<TITLE><s:property value="#linkMan==null?'添加':'修改'"/> 联系人</TITLE> 
+<TITLE><s:property value="#linkMan==null?'添加':'修改'" /> 联系人</TITLE> 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
 <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
@@ -18,8 +18,8 @@
 	<FORM id=form1 name=form1
 		action="${pageContext.request.contextPath }/LinkManAction_add"
 		method=post>
-		<input type="hidden" name="lkm_id" value="<s:property value="#linkMan.lkm_id"/>">
-	
+		<input type="hidden" name="lkm_id" value="<s:property value="#linkMan.lkm_id" />" />
+
 		<TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
 			<TBODY>
 				<TR>
@@ -40,7 +40,7 @@
 					<TD vAlign=top width="100%" bgColor=#ffffff>
 						<TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
 							<TR>
-								<TD class=manageHead>当前位置：联系人管理 &gt; <s:property value="#linkMan==null?'添加':'修改'"/>联系人</TD>
+								<TD class=manageHead>当前位置：联系人管理 &gt;<s:property value="#linkMan==null?'添加':'修改'" /> 联系人</TD>
 							</TR>
 							<TR>
 								<TD height=2></TD>
@@ -49,33 +49,34 @@
 						<TABLE cellSpacing=0 cellPadding=5  border=0>
 							<tr>
 								<td>所属客户：</td>
-								<td colspan="3"><input type="hidden" name="cust_id" id="cust_id" style="WIDTH: 180px" value="<s:property value="#linkMan.customer.cust_id"/>"/>
-								<input type="text" style="WIDTH: 180px" id="cust_name" value="<s:property value="#linkMan.customer.cust_name"/>"/>
-									<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=500,height=300')"/>
+								<td colspan="3">
+								<input type="hidden" name="customer.cust_id" style="WIDTH: 180px" id="cust_id" value="<s:property value="#linkMan.customer.cust_id" />" />
+								<input type="text"  style="WIDTH: 180px" id="cust_name" value="<s:property value="#linkMan.customer.cust_name" />"/>
+									<input type="button" value="选择客户" onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=600,height=300')" />
 								</td>
 							</tr>
 							<TR>
 								<td>联系人名称：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkm_name" value="<s:property value="#linkMan.lkm_name"/>">
+														style="WIDTH: 180px" maxLength=50 name="lkm_name" value="<s:property value="#linkMan.lkm_name" />" >
 								</td>
 								<td>联系人性别：</td>
 								<td>
-								<input type="radio" value="1" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='1'?'checked':''"/>/>男
-								<input type="radio" value="2" name="lkm_gender" <s:property value="#linkMan.lkm_gender=='2'?'checked':''"/>/>女
+								<input type="radio" value="男" name="lkm_gender"  <s:property value="#linkMan.lkm_gender=='男'?'checked':''" /> >男
+								<input type="radio" value="女" name="lkm_gender"  <s:property value="#linkMan.lkm_gender=='女'?'checked':''" /> >女
 								</td>
 							</TR>
 							<TR>
 								<td>联系人办公电话 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkm_phone" value="<s:property value="#linkMan.lkm_phone"/>">
+														style="WIDTH: 180px" maxLength=50 name="lkm_phone" value="<s:property value="#linkMan.lkm_phone" />">
 								</td>
 								<td>联系人手机 ：</td>
 								<td>
 								<INPUT class=textbox id=sChannel2
-														style="WIDTH: 180px" maxLength=50 name="lkm_mobile" value="<s:property value="#linkMan.lkm_mobile"/>">
+														style="WIDTH: 180px" maxLength=50 name="lkm_mobile"  value="<s:property value="#linkMan.lkm_mobile" />">
 								</td>
 							</TR>
 							<tr>

@@ -1,6 +1,7 @@
 package com.wuliji.web.action;
 
 import java.io.File;
+import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
@@ -68,6 +69,12 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		//将客户对象放置到request域中，并转发到编辑页面
 		ActionContext.getContext().put("customer", c);
 		return "edit";
+	}
+	
+	public String industryCount() throws Exception {
+		List<Object[]> list = cs.getIndustry();
+		ActionContext.getContext().put("countList", list);
+		return "industyCount";
 	}
 	
 	
